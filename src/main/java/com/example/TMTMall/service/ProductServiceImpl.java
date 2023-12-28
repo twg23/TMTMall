@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -41,6 +42,18 @@ public class ProductServiceImpl implements ProductService {
         productRepository.save(product);
 
         return "You have saved the product";}
+
+//    public List<Product> sortProductByPrice(){
+//        List<Product> products = new ArrayList<>();
+//        Iterable<Product> productsIts = productRepository.findAll();
+//        productsIts.forEach(products::add);
+//
+//        Collections.sort(products);
+//        for(Product product :: products){
+//            return product.
+//
+//        }
+//    }
 
 
     @Override

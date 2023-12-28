@@ -1,0 +1,18 @@
+trim = remove leading and trailing whitespace f
+rom a string
+String input = "   Hello, World!   ";
+String trimmed = input.trim();
+"Hello, World!"
+@Query("SELECT p FROM Product p WHERE lower(trim(p.name)) = lower(trim(:name))")
+List<Product> findByNameIgnoreCaseAndTrim(@Param("name") String name);
+ @Query Annotation:
+ This annotation is used to specify a JPQL (Java Persistence Query Language) query directly within the Spring Data repository interface.
+ "SELECT p FROM Product p WHERE lower(trim(p.name)) = lower(trim(:name))"
+ It's a JPQL query that selects products (p) from the Product entity where the lowercase and trimmed version of the product name (p.name) matches the
+ lowercase and trimmed version of the product name (p.name) matches the lowercase and trimmed version of the input parameter :name.
+ It takes a parameter named name, and the @Param annotation is used to specify that the parameter in the query is :name.
+ The return type is a List<Product>, indicating that the query is expected to return a list of Product entities.
+
+
+ascending descending order
+get all product in sequence , pagenation

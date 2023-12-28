@@ -1,5 +1,6 @@
 package com.example.TMTMall.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,13 +21,11 @@ public class Customer {
     private String name; /*split name*/
     private  String phoneNumber;
     private String emailAddress;
-    @OneToMany (mappedBy =  "customer")
-    private List<Order> order;
 
-    /*
-    * create order id column
-    *
-    * */
+
+    @JsonManagedReference
+    @OneToMany (mappedBy =  "customer", cascade = CascadeType.ALL)
+    private List<Order> order;
 
 
 }

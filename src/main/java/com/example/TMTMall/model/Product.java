@@ -18,6 +18,7 @@ public class Product {
     private long id;
     @Enumerated (EnumType.STRING)
     private ProductCategory category;
+    @Column(name = "name")
     private String name;
     private double price;
     private int quantity;

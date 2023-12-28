@@ -40,8 +40,10 @@ public class OrderController {
         return orderService.findOrderById(id);
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<List<LineItem>> findOrderById(@PathVariable Long id){
-//        return ResponseEntity.ok(orderService.findOrderById(id));
-//    }
+    @DeleteMapping ("delete/{id}")
+    public void deleteOrderById(@PathVariable Long id){
+        orderService.deleteOrderById(id);
+    }
+
+
 }

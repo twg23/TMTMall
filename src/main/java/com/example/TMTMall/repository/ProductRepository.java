@@ -19,8 +19,12 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
    // Product findProductsByProductName(String Name);
 
-    @Query("SELECT p FROM Product p WHERE lower(trim(p.name)) = lower(trim(:name))")
-List<Product> findByNameIgnoreCaseAndTrim(@Param("name") String name);
+//    @Query("SELECT p FROM Product p WHERE lower(trim(p.name)) = lower(trim(:name))")
+//List<Product> findByNameIgnoreCaseAndTrim(@Param("name") String name);
+
+    @Query("SELECT p FROM Product p WHERE lower(replace (p.name, ' ','')) = lower(replace(:name,' ',''))")
+    Product findByNameIgnoreCaseAndTrim(@Param("name") String name);
+
 
 
 }
