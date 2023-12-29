@@ -7,6 +7,10 @@ import com.example.TMTMall.model.ProductCategory;
 import com.example.TMTMall.repository.ProductRepository;
 import com.example.TMTMall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -37,6 +41,12 @@ public class ProductsController {
     public List<Product> findProduct(){
        return productService.findProduct();
     }
+
+    @GetMapping("")
+    public Page<Product> getProductByPage(@RequestParam Integer pageSize, @RequestParam Integer page){
+        Pageable pageable = PageRequest.of(page, pageSize);
+       return productService.getProductByPage(pageable);
+     }
 
 
 

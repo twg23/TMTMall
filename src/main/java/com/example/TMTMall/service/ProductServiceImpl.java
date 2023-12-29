@@ -6,11 +6,11 @@ import com.example.TMTMall.model.Product;
 import com.example.TMTMall.model.ProductCategory;
 import com.example.TMTMall.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -43,17 +43,11 @@ public class ProductServiceImpl implements ProductService {
 
         return "You have saved the product";}
 
-//    public List<Product> sortProductByPrice(){
-//        List<Product> products = new ArrayList<>();
-//        Iterable<Product> productsIts = productRepository.findAll();
-//        productsIts.forEach(products::add);
-//
-//        Collections.sort(products);
-//        for(Product product :: products){
-//            return product.
-//
-//        }
-//    }
+
+    @Override
+    public Page<Product> getProductByPage(Pageable page){
+        return productRepository.getAllProduct(page);
+    }
 
 
     @Override
