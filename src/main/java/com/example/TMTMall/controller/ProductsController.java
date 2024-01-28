@@ -48,6 +48,11 @@ public class ProductsController {
        return productService.getProductByPage(pageable);
      }
 
+     @GetMapping("/sort")
+     public List<Product> sortProductByPrice(@RequestParam String sortOrder){
+        return productService.sortProductByPrice(sortOrder);
+     }
+
 
 
 

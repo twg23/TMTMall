@@ -16,5 +16,7 @@ public interface ProductService {
 
     void deleteProduct(Long id);
 
+    List<Product> sortProductByPrice(String sortType);
+
     String updateProduct(Long id, ProductDTO productDTO);
 }

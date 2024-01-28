@@ -16,3 +16,14 @@ List<Product> findByNameIgnoreCaseAndTrim(@Param("name") String name);
 
 ascending descending order
 get all product in sequence , pagenation
+
+authentication
+spring security ***
+filter chain -> authetication manager -> authentication provider -- utilise (user details & password encorder **interfaces)
+//checks against database using user details service
+authetication = boolean
+
+if JWT token
+
+
+-> controller

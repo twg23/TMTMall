@@ -46,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<Product> getProductByPage(Pageable page){
-        return productRepository.getAllProduct(page);
+        return productRepository.findAll(page);
     }
 
 
@@ -55,6 +55,14 @@ public class ProductServiceImpl implements ProductService {
        Product product = productRepository.findById(id).orElseThrow(()->
                new IdNotFoundException( "Product ID not found"));
         productRepository.delete(product);
+    }
+
+    @Override
+    public List<Product> sortProductByPrice(String sortOrder){
+       if (sortOrder.equalsIgnoreCase( "asc")){
+           return productRepository.sortProductByPriceAscending(sortOrder);
+       }
+       return productRepository.sortProductByPriceDescending(sortOrder);
     }
 
     @Override

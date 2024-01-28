@@ -28,7 +28,16 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE lower(replace (p.name, ' ','')) = lower(replace(:name,' ',''))")
     Product findByNameIgnoreCaseAndTrim(@Param("name") String name);
 
-    Page<Product> getAllProduct(Pageable page);
+    Page<Product> findAll(Pageable page);
+
+//    @Query(value ="SELECT * FROM products p order by p.price :sortOrder", nativeQuery = true )
+//    List<Product> sortProductByPriceAscending (@Param("sortOrder") String sortOrder);
+
+    @Query(value= "SELECT * FROM products p order by p.price desc", nativeQuery = true)
+    List<Product> sortProductByPriceDescending(String descending);
+
+    @Query(value= "SELECT * FROM products p order by p.price asc", nativeQuery = true)
+    List<Product> sortProductByPriceAscending(String descending);
 
 
 
